@@ -6,7 +6,11 @@ export interface TurboLazyProps {
   config?: IntersectionObserverInit;
 }
 
-export function TurboLazy({ children, loading, config }: TurboLazyProps) {
+export const TurboLazy: React.FC<TurboLazyProps> = ({
+  children,
+  loading,
+  config,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,4 +35,7 @@ export function TurboLazy({ children, loading, config }: TurboLazyProps) {
   }, [config]);
 
   return <div ref={ref}>{isVisible ? children : loading}</div>;
-}
+};
+
+// Default export
+export default TurboLazy;

@@ -1,18 +1,25 @@
 {
   "name": "@htondro/turbo-lazy",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "sideEffects": false,
   "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup ./index.tsx --format esm,cjs --dts",
-    "dev": "tsup ./index.tsx --format esm,cjs --watch --dts",
-    "lint": "eslint \"./**/*.ts*\"",
+    "build": "tsup src/index.tsx --format esm,cjs --dts",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts",
+    "lint": "eslint \"src/**/*.ts*\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
@@ -27,7 +34,21 @@
     "react": ">=18"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  }
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htondro/turbo-components.git",
+    "directory": "packages/turbo-lazy"
+  },
+  "homepage": "https://github.com/htondro/turbo-components#readme",
+  "bugs": {
+    "url": "https://github.com/htondro/turbo-components/issues"
+  },
+  "keywords": [
+    "react",
+    "lazy-loading",
+    "intersection-observer",
+    "performance"
+  ]
 }
